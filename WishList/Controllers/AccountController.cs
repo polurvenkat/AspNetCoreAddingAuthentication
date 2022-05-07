@@ -63,6 +63,7 @@ namespace WishList.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
@@ -78,7 +79,7 @@ namespace WishList.Controllers
                 return View(model);
             }
 
-            var result = _signInManager.PasswordSignInAsync(new ApplicationUser { Email = model.Email, UserName = model.Email }, model.Password, false, false).Result;
+            var result = _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false).Result;
 
             if (!result.Succeeded)
             {
