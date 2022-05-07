@@ -43,7 +43,7 @@ namespace WishList.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Register");
+                return View();
             }
 
             var applicationUser = new ApplicationUser
@@ -64,7 +64,7 @@ namespace WishList.Controllers
                 return View(registerViewModel);
             }
 
-            return RedirectToAction("HomeController.Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
