@@ -1,12 +1,13 @@
 ﻿
 @using Microsoft.AspNetCore.Identity;
 @using WishList.Models;
+@inject SignInManager<ApplicationUser> SigninManager
 
-@inject SignInManager<ApplicationUser> SigninManager;
+<h1>Welcome!</h1>
 
-
-
-
+<div>
+    <a asp-action="Index" asp-controller="Item">View wishlist</a>
+</div>
 
 @if (SigninManager.IsSignedIn(User))
 {
@@ -17,8 +18,9 @@
         </form>
     </div>
 
-
 }
+
+
 else
 {
     <div>
@@ -28,4 +30,6 @@ else
         <a asp-action="Login" asp-controller="Account">Log in</a>
     </div>
 }
+
+
 
